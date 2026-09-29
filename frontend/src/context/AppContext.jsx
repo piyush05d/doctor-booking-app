@@ -6,7 +6,7 @@ export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
   const currencySymbol = "₹";
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://doctor-booking-app-gijx.vercel.app";
 
   const [doctors, setDoctors] = useState([]);
   const [token, setToken] = useState(
