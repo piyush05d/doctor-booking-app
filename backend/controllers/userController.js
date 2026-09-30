@@ -5,6 +5,7 @@ import razorpay from "razorpay";
 import userModel from "../models/userModel.js";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
+import { uploadToCloudinary } from "../config/cloudinary.js";
 
 // ---------- Auth (patient/user - separate from doctor & admin) ----------
 
@@ -96,7 +97,7 @@ const updateProfile = async (req, res) => {
     };
 
     if (req.file) {
-      updateData.image = `/uploads/${req.file.filename}`;
+      updateData.image = await uploadToCloudinary(req.file.buffer);
     }
 
     await userModel.findByIdAndUpdate(userId, updateData);

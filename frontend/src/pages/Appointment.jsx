@@ -5,6 +5,7 @@ import { assets } from '../assets/assets_frontend/assets'
 import RelatedDoctor from '../components/RelatedDoctor'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { imageUrl } from '../utils/imageUrl'
 
 const Appointment = () => {
 
@@ -121,7 +122,7 @@ const Appointment = () => {
       {/* ---------- Doctor Details ---------- */}
       <div className='flex flex-col sm:flex-row gap-4'>
         <div>
-          <img className='bg-primary w-full sm:max-w-72 rounded-lg object-cover' src={backendUrl + docInfo.image} alt="" />
+          <img className='bg-primary w-full sm:max-w-72 rounded-lg object-cover' src={imageUrl(docInfo.image)} alt="" />
         </div>
 
         <div className='flex-1 border border-gray-400 rounded-lg p-8 py-7 bg-white mx-2 sm:mx-0 mt-[-80px] sm:mt-0'>

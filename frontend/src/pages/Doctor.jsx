@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import { imageUrl } from '../utils/imageUrl'
 
 const Doctors = () => {
   const { speciality } = useParams()
   const [filterDoc, setFilterDoc] = useState([])
-  const { doctors, backendUrl } = useContext(AppContext)
+  const { doctors } = useContext(AppContext)
   const navigate = useNavigate()
 
   const applyFilter = () => {
@@ -78,7 +79,7 @@ const Doctors = () => {
             className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:-translate-y-2.5 transition-all duration-500'
             key={index}
           >
-            <img className='bg-blue-50 w-full h-48 object-cover' src={backendUrl + item.image} alt="" />
+            <img className='bg-blue-50 w-full h-48 object-cover' src={imageUrl(item.image)} alt="" />
             <div className='p-4'>
               <div className='flex items-center gap-2 text-sm text-center text-green-500'>
                 <p className='w-2 h-2 bg-green-500 rounded-full'></p>
@@ -89,7 +90,7 @@ const Doctors = () => {
             </div>
           </div>
 
-            
+
           ))}
         </div>
 

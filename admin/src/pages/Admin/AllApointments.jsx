@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AdminContext } from "../../context/AdminContext";
 import { AppContext } from "../../context/AppContext";
+import { imageUrl } from "../../utils/imageUrl";
 
 const AllApointments = () => {
   const { aToken, appointments, getAllAppointments, cancelAppointment } =
@@ -35,7 +36,7 @@ const AllApointments = () => {
             <div className="flex items-center gap-2">
               <img
                 className="w-8 h-8 rounded-full object-cover"
-                src={`${import.meta.env.VITE_BACKEND_URL}${item.userData.image}`}
+                src={imageUrl(item.userData.image)}
                 alt=""
               />
               <p>{item.userData.name}</p>
@@ -51,7 +52,7 @@ const AllApointments = () => {
             <div className="flex items-center gap-2">
               <img
                 className="w-8 h-8 rounded-full bg-gray-200 object-cover"
-                src={`${import.meta.env.VITE_BACKEND_URL}${item.docData.image}`}
+                src={imageUrl(item.docData.image)}
                 alt=""
               />
               <p>{item.docData.name}</p>

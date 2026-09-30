@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { DoctorContext } from "../../context/DoctorContext";
 import { AppContext } from "../../context/AppContext";
+import { imageUrl } from "../../utils/imageUrl";
 
 const DoctorDashboard = () => {
   const { dToken, dashData, getDashData, completeAppointment, cancelAppointment } =
@@ -55,7 +56,7 @@ const DoctorDashboard = () => {
             >
               <img
                 className="rounded-full w-10 h-10 object-cover"
-                src={`${import.meta.env.VITE_BACKEND_URL}${item.userData.image}`}
+                src={imageUrl(item.userData.image)}
                 alt=""
               />
               <div className="flex-1 text-sm">

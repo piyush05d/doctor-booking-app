@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import { imageUrl } from '../utils/imageUrl'
 
 const TopDoctors = () => {
   const navigate = useNavigate()
-  const { doctors, backendUrl } = useContext(AppContext)
+  const { doctors } = useContext(AppContext)
 
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
@@ -18,7 +19,7 @@ const TopDoctors = () => {
             className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:-translate-y-2.5 transition-all duration-500'
             key={index}
           >
-            <img className='bg-blue-50 w-full h-48 object-cover' src={backendUrl + item.image} alt="" />
+            <img className='bg-blue-50 w-full h-48 object-cover' src={imageUrl(item.image)} alt="" />
             <div className='p-4'>
               <div className='flex items-center gap-2 text-sm text-center text-green-500'>
                 <p className='w-2 h-2 bg-green-500 rounded-full'></p>

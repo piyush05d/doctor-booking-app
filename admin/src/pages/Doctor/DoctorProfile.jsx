@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { DoctorContext } from "../../context/DoctorContext";
 import { AppContext } from "../../context/AppContext";
+import { imageUrl } from "../../utils/imageUrl";
 
 const DoctorProfile = () => {
   const { dToken, profileData, setProfileData, getProfileData, backendUrl } =
@@ -47,7 +48,7 @@ const DoctorProfile = () => {
       <div className="flex flex-col gap-4 max-w-2xl">
         <img
           className="w-full sm:max-w-64 rounded-lg object-cover"
-          src={`${backendUrl}${profileData.image}`}
+          src={imageUrl(profileData.image)}
           alt=""
         />
 

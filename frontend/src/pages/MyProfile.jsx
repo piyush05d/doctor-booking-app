@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { imageUrl } from '../utils/imageUrl'
 
 const MyProfile = () => {
 
@@ -47,11 +48,11 @@ const MyProfile = () => {
         isEdit
           ? <label htmlFor='image'>
             <div className='inline-block relative cursor-pointer'>
-              <img className='w-36 rounded opacity-75 object-cover' src={image ? URL.createObjectURL(image) : backendUrl + userData.image} alt="" />
+              <img className='w-36 rounded opacity-75 object-cover' src={image ? URL.createObjectURL(image) : imageUrl(userData.image)} alt="" />
             </div>
             <input onChange={(e) => setImage(e.target.files[0])} type="file" id="image" hidden accept="image/*" />
           </label>
-          : <img className='w-36 rounded object-cover' src={backendUrl + userData.image} alt="" />
+          : <img className='w-36 rounded object-cover' src={imageUrl(userData.image)} alt="" />
       }
 
       {

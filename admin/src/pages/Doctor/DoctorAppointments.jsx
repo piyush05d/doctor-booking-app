@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { DoctorContext } from "../../context/DoctorContext";
 import { AppContext } from "../../context/AppContext";
+import { imageUrl } from "../../utils/imageUrl";
 
 const DoctorAppointments = () => {
   const {
@@ -9,7 +10,6 @@ const DoctorAppointments = () => {
     getAppointments,
     completeAppointment,
     cancelAppointment,
-    backendUrl,
   } = useContext(DoctorContext);
   const { slotDateFormat, calculateAge, currency } = useContext(AppContext);
 
@@ -41,7 +41,7 @@ const DoctorAppointments = () => {
             <div className="flex items-center gap-2">
               <img
                 className="w-8 h-8 rounded-full object-cover"
-                src={`${backendUrl}${item.userData.image}`}
+                src={imageUrl(item.userData.image)}
                 alt=""
               />
               <p>{item.userData.name}</p>

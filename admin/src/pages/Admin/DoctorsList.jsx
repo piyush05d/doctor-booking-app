@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { AdminContext } from "../../context/AdminContext";
+import { imageUrl } from "../../utils/imageUrl";
 
 const DoctorsList = () => {
   const { doctors, aToken, getAllDoctors, changeAvailability, backendUrl } =
@@ -20,7 +21,7 @@ const DoctorsList = () => {
           >
             <img
               className="bg-[#EAEFFF] group-hover:bg-primary transition-all duration-500 w-full h-40 object-cover"
-              src={`${backendUrl}${item.image}`}
+              src={imageUrl(item.image)}
               alt={item.name}
             />
             <div className="p-4">

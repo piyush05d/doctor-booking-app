@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { imageUrl } from '../utils/imageUrl'
 
 const MyAppointments = () => {
 
@@ -91,7 +92,7 @@ const MyAppointments = () => {
         {appointments.map((item, index) => (
           <div className='grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-2 border-b' key={index}>
             <div>
-              <img className='w-32 bg-indigo-50 object-cover' src={backendUrl + item.docData.image} alt="" />
+              <img className='w-32 bg-indigo-50 object-cover' src={imageUrl(item.docData.image)} alt="" />
             </div>
             <div className='flex-1 text-sm text-zinc-600'>
               <p className='text-neutral-800 font-semibold'>{item.docData.name}</p>

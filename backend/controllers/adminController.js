@@ -4,6 +4,7 @@ import validator from "validator";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import userModel from "../models/userModel.js";
+import { uploadToCloudinary } from "../config/cloudinary.js";
 
 // Admin login - credentials come from .env, NOT the database, and are
 // completely separate from doctor / user login
@@ -77,7 +78,7 @@ const addDoctor = async (req, res) => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const imageUrl = `/uploads/${imageFile.filename}`;
+    const imageUrl = await uploadToCloudinary(imageFile.buffer);
 
     const doctorData = {
       name,
